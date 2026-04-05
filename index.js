@@ -11,9 +11,7 @@ app.get('/api/verificar', async (req, res) => {
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    content: '📢 Verificação feita! Alguém clicou no botão!',
-                }),
+                body: JSON.stringify({ content: '📢 Verificação feita! Alguém clicou no botão!' }),
             }
         );
         res.send('✅ Verificação enviada!');
@@ -23,12 +21,13 @@ app.get('/api/verificar', async (req, res) => {
     }
 });
 
-// Servir index.html
-app.use(express.static('.'));
-
-// Start do servidor
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
 // Serve o index.html na raiz
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
+
+// Servir outros arquivos estáticos
+app.use(express.static('.'));
+
+// Start do servidor
+app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
