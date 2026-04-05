@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-// Servir outros arquivos estáticos
+// Servir arquivos estáticos
 app.use(express.static('.'));
 
 // Start do servidor
