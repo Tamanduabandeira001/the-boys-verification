@@ -28,3 +28,7 @@ app.use(express.static('.'));
 
 // Start do servidor
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+// Serve o index.html na raiz
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
